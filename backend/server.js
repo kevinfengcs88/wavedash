@@ -1,15 +1,18 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const express = require('express');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 const { chats } = require('./data/data');
 const connectDB = require('./config/db');
 
-dotenv.config();
+// dotenv.config();
+console.log('THIS IS THE URL: ' + process.env.MONGO_URI);
 connectDB();
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('API is running successfully');
-});
+// app.get('/', (req, res) => {
+//     res.send('API is running successfully');
+// });
 
 app.get('/api/chat', (req, res) => {
     res.send(chats);
