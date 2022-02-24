@@ -6,7 +6,7 @@ const { chats } = require('./data/data');
 const connectDB = require('./config/db');
 
 // dotenv.config();
-console.log('THIS IS THE URL POGCHAMP: ' + process.env.MONGO_URI);
+console.log('THIS IS THE URL: ' + process.env.MONGO_URI);
 connectDB();
 const app = express();
 
