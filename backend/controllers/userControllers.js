@@ -42,9 +42,9 @@ const registerUser = expressAsyncHandler(async(req, res) => {
 const authUser = expressAsyncHandler(async(req, res) => {
     const {email, passwrd} = req.body;
 
-    const user = await User.findOne({email});
+    const user = await User.findOne({ email });
 
-    if (user && ()){    // need to add bcrypt and password logic
+    if (user && (await User.matchPassword(password))){    // need to add bcrypt and password logic
         res.json({
             _id: user._id,
             name: user.name,
@@ -58,4 +58,4 @@ const authUser = expressAsyncHandler(async(req, res) => {
     }
 });
 
-module.exports = { registerUser };
+module.exports = { registerUser, authUser };
