@@ -1,4 +1,5 @@
 const expressAsyncHandler = require("express-async-handler");
+const generateToken = require("../config/generateToken");
 const User = require('../models/userModel');
 
 const registerUser = expressAsyncHandler(async(req, res) => {
@@ -28,12 +29,32 @@ const registerUser = expressAsyncHandler(async(req, res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
-            pic: user.pic
+            pic: user.pic,
+            token: generateToken(user._id)
         });
     }
     else{
         res.status(400);
         throw new Error('Failed to create account');
+    }
+});
+
+const authUser = expressAsyncHandler(async(req, res) => {
+    const {email, passwrd} = req.body;
+
+    const user = await User.findOne({email});
+
+    if (user && ()){    // need to add bcrypt and password logic
+        res.json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            pic: user.pic,
+            token: generateToken(user._id)
+        });
+    }else{
+        res.status(401);
+        throw new Error('Invalid email or password');
     }
 });
 
