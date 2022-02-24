@@ -12,7 +12,7 @@ const HomePage = () => {
       <Box bg='white' w='100%' p={4} borderRadius='lg' borderWidth='1px'>
       <Tabs variant='soft-rounded' colorScheme='purple'>
         <TabList mb='1em'>
-          <Tab width='50%'>Login</Tab>
+          <Tab width='50%'>Login test</Tab>
           <Tab width='50%'>Register</Tab>
         </TabList>
         <TabPanels>
