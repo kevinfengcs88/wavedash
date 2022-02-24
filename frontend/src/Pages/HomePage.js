@@ -6,17 +6,8 @@ import Register from '../components/authentication/Register';
 const HomePage = () => {
   return (
     <Container maxW='xl' centerContent>
-      <Box
-        d='flex'
-        justifyContent='center'
-        p={3}
-        bg={'white'}
-        w='100%'
-        m='40px 0 15px 0'
-        borderRadius='lg'
-        borderWidth='1px'
-      >
-        <Text fontSize='4xl' fontFamily='Maven Pro' >Wavedash</Text>
+      <Box pb='3'>
+          <Image src='https://user-images.githubusercontent.com/80129996/155554004-ac58493c-36d0-4dd9-b525-61963a4006ad.png'/>
       </Box>
       <Box bg='white' w='100%' p={4} borderRadius='lg' borderWidth='1px'>
       <Tabs variant='soft-rounded' colorScheme='purple'>
@@ -38,4 +29,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default HomePage;
