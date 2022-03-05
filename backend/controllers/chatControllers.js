@@ -1,5 +1,4 @@
 const expressAsyncHandler = require("express-async-handler");
-const { chats } = require("../data/data");
 const Chat = require('../models/chatModel');
 const User = require("../models/userModel");
 
@@ -11,7 +10,7 @@ const accessChat = expressAsyncHandler(async(req, res) => {
         return res.sendStatus(400);
     }
 
-    let isChat = await chats.find({
+    let isChat = await Chat.find({
         isGroupChat: false,
         $and: [
             {users:{$elemMatch:{$eq:req.user._id}}},
@@ -38,7 +37,7 @@ const accessChat = expressAsyncHandler(async(req, res) => {
             
             const FullChat = await Chat.findOne({ _id: createdChat._id }).populate('users', '-password');
 
-            res.status(200).send(FullChat);
+            res.status(200).json(FullChat);
         } catch (error) {
             res.status(400);
             throw new Error(error.message);
