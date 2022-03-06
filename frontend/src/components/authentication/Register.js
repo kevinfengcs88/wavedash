@@ -21,7 +21,7 @@ const Register = () => {
         setLoading(true);
         if (pics === undefined){
             toast({
-                title: 'Please select an image.',
+                title: 'Please select an image',
                 status: 'warning',
                 durationg: 5000,
                 isClosable: true,
@@ -48,7 +48,7 @@ const Register = () => {
         }
         else{
             toast({
-                title: 'Please select an image.',
+                title: 'Please select an image',
                 status: 'warning',
                 durationg: 5000,
                 isClosable: true,
@@ -63,7 +63,7 @@ const Register = () => {
         setLoading(true);
         if (!name || !email || !password || !confirmPassword){
             toast({
-                title: 'Please fill out all fields.',
+                title: 'Please fill out all fields',
                 status: 'warning',
                 durationg: 5000,
                 isClosable: true,
@@ -74,7 +74,7 @@ const Register = () => {
         }
         if (password !== confirmPassword){
             toast({
-                title: 'Passwords do not match.',
+                title: 'Passwords do not match',
                 status: 'warning',
                 durationg: 5000,
                 isClosable: true,
@@ -90,7 +90,7 @@ const Register = () => {
             };
             const { data } = await axios.post('/api/user', {name, email, password, pic}, config);
             toast({
-                title: 'Registration successful.',
+                title: 'Registration successful',
                 status: 'success',
                 durationg: 5000,
                 isClosable: true,
@@ -102,7 +102,7 @@ const Register = () => {
         }
         catch (error){
             toast({
-                title: 'Error occurred.',
+                title: 'Error occurred',
                 description: error.response.data.message,
                 status: 'error',
                 durationg: 5000,

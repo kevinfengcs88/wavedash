@@ -16,7 +16,7 @@ const Login = () => {
         setLoading(true);
         if (!email || !password){
             toast({
-                title: 'Please fill out all fields.',
+                title: 'Please fill out all fields',
                 status: 'warning',
                 durationg: 5000,
                 isClosable: true,
@@ -33,7 +33,7 @@ const Login = () => {
             };
             const { data } = await axios.post('/api/user/login', {email, password}, config);
             toast({
-                title: 'Login successful.',
+                title: 'Login successful',
                 status: 'success',
                 durationg: 5000,
                 isClosable: true,
@@ -45,7 +45,7 @@ const Login = () => {
         }
         catch (error){
             toast({
-                title: 'Error occurred.',
+                title: 'Error occurred',
                 description: error.response.data.message,
                 status: 'error',
                 durationg: 5000,
