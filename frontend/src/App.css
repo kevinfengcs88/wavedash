@@ -7,3 +7,15 @@
     background-size: auto;
     background-position: center;
 }
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgba(136, 146, 146, 0.281);
+}
+
+::-webkit-scroll-thumb:hover{
+    background:#555;
+}

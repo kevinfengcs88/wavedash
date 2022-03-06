@@ -18,8 +18,8 @@ const ChatPage = () => {
         height='91.5vh'
         p='10px'
       >
-        {user && <MyChats/>}
-        {user && <ChatBox/>}
+        {user && <MyChats />}
+        {user && <ChatBox />}
       </Box>
     </div>
   )
