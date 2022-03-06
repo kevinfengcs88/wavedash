@@ -17,9 +17,7 @@ const UserBadgeItem = ({ user, handleFunction }) => {
         onClick={handleFunction}
     >
         { user.name }
-        <CloseIcon 
-            pl={1}
-        />
+        <CloseIcon pl={1} />
     </Box>
   )
 }

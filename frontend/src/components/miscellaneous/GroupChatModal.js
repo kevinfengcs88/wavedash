@@ -5,14 +5,14 @@ import { ChatState } from '../../Context/ChatProvider';
 import UserListItem from '../UserAvatar/UserListItem';
 import UserBadgeItem from '../UserAvatar/UserBadgeItem';
 
-const GroupChatModal = ({children}) => {
+const GroupChatModal = ({ children }) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [groupChatName, setGroupChatName] = useState();
-    const [selectedUsers, setSelectedUsers] = useState();
-    const [search, setSearch] = useState();
-    const [searchResult, setSearchResult] = useState();
-    const [loading, setLoading] = useState();
+    const [selectedUsers, setSelectedUsers] = useState([]);
+    const [search, setSearch] = useState('');
+    const [searchResult, setSearchResult] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const toast = useToast();
 
@@ -45,15 +45,15 @@ const GroupChatModal = ({children}) => {
         }
     };
 
-    const handleSubmit  = () => {
+    const handleSubmit = () => {
 
     };
 
-    const handleDelete  = () => {
+    const handleDelete = () => {
 
     };
 
-    const handleGroup  = (userToAdd) => {
+    const handleGroup = (userToAdd) => {
         if(selectedUsers.includes(userToAdd)){
             toast({
                 title: 'User already in group',
@@ -72,7 +72,7 @@ const GroupChatModal = ({children}) => {
         <>
           <span onClick={onOpen}>{children}</span>
     
-          <Modal isOpen={isOpen} onClose={onClose}>
+          <Modal isOpen={isOpen} onClose={onClose} isCentered>
             <ModalOverlay />
             <ModalContent>
               <ModalHeader
@@ -111,9 +111,9 @@ const GroupChatModal = ({children}) => {
                 >
                     {selectedUsers.map((u)=>(
                         <UserBadgeItem 
-                        key={user._id}
-                        user={user}
-                        handleFunction={()=>handleDelete(u)}
+                            key={u._id}
+                            user={u}
+                            handleFunction={()=>handleDelete(u)}
                         />
                     ))}
                 </Box>
