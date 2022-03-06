@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { ChatState } from '../Context/ChatProvider';
 import ChatLoading from './ChatLoading';
 import { getSender } from '../config/ChatLogics';
+import GroupChatModal from './miscellaneous/GroupChatModal';
 
 const MyChats = () => {
 const [loggedUser, setLoggedUser] = useState();
@@ -18,7 +19,7 @@ const [loggedUser, setLoggedUser] = useState();
         headers: {
             Authorization:`Bearer ${user.token}`
         }
-    };
+      };
 
     const { data } = await axios.get('/api/chat', config);
     console.log(data);
@@ -63,13 +64,15 @@ const [loggedUser, setLoggedUser] = useState();
         alignItems='center'
       >
         Chats
-        <Button
-          d='flex'
-          fontSize={{ base: '17px', md: '10px', lg: '17px' }}
-          rightIcon={<AddIcon />}
-        >
-          New Group Chat
-        </Button>
+        <GroupChatModal>
+          <Button
+            d='flex'
+            fontSize={{ base: '17px', md: '10px', lg: '17px' }}
+            rightIcon={<AddIcon />}
+          >
+            New Group Chat
+          </Button>
+        </GroupChatModal>
       </Box>
       <Box
         d='flex'
