@@ -1,5 +1,5 @@
-import { Box, Container, Text, Tabs, Tab, TabList, TabPanels, TabPanel, Image} from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import { Box, Container, Tabs, Tab, TabList, TabPanels, TabPanel, Image} from '@chakra-ui/react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Login from '../components/authentication/Login';
 import Register from '../components/authentication/Register';
@@ -38,7 +38,7 @@ const HomePage = () => {
       </Tabs>
       </Box>
     </Container>
-  )
+  );
 }
 
 export default HomePage;
