@@ -1,7 +1,7 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const express = require('express');
-// const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 const { chats } = require('./data/data');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
@@ -10,26 +10,35 @@ const messageRoutes = require('./routes/messageRoutes');
 const colors = require('colors');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
-// dotenv.config();
+dotenv.config();
 connectDB();
 const app = express();
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('API is running successfully');
-});
-
 app.use('/api/user', userRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/message', messageRoutes);
+
+// ----------------------Deployment code----------------------
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname1, '/frontend/build')));
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname1, 'frontend', 'build', 'index.html')));
+} else {
+    app.get('/', (req, res) => {
+        res.send('API is running successfully');
+    });
+}
+// ----------------------Deployment code----------------------
 
 app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, console.log(`Server started on ${PORT}`.cyan.bold));
+const server = app.listen(PORT, console.log(`Server started on Port ${PORT}`.cyan.bold));
 
 const io = require('socket.io')(server, {
     pingTimeout: 60000,
