@@ -8,13 +8,17 @@ import ProfileModal from './miscellaneous/ProfileModal';
 import UpdateGroupChatModel from './miscellaneous/UpdateGroupChatModal';
 import ScrollableChat from './ScrollableChat';
 import './styles.css';
+import io from 'socket.io-client';
 
+const ENDPOINT = 'http://localhost:5000';
+let socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(false);
     const [newMessage, setNewMessage] = useState();
+    const [socketConnected, setSocketConnected] = useState(false);
 
     const { user, selectedChat, setSelectedChat } = ChatState();
     
@@ -52,6 +56,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     useEffect(() => {
         fetchMessages();
     }, [selectedChat]);
+    
+    useEffect(() => {
+      socket = io(ENDPOINT);
+      socket.emit('setup', user);
+      socket.on('connection', () => setSocketConnected(true));
+    }, []);
     
 
     const sendMessage = async(event) => {
