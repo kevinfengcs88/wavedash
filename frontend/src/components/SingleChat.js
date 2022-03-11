@@ -56,16 +56,28 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     }
 
     useEffect(() => {
-        fetchMessages();
-    }, [selectedChat]);
-    
-    useEffect(() => {
-      socket = io(ENDPOINT);
-      socket.emit('setup', user);
-      socket.on('connection', () => setSocketConnected(true));
-    }, []);
-    
+        socket = io(ENDPOINT);
+        socket.emit('setup', user);
+        socket.on('connection', () => setSocketConnected(true));
+      }, []);
 
+    useEffect(() => {
+        fetchMessages();
+        selectedChatCompare = selectedChat;
+    }, [selectedChat]);
+
+    useEffect(() => {
+        socket.on('message received', (newMessageReceived) => {
+            if (!selectedChatCompare || selectedChatCompare._id !== newMessageReceived.chat._id){
+                // give notif
+            }
+            else{
+                setMessages([...messages, newMessageReceived]);
+            }
+        })
+    })
+    
+    
     const sendMessage = async(event) => {
         if(event.key === 'Enter' && newMessage){
             try {
@@ -82,7 +94,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     chatId: selectedChat._id
                 }, config);
 
-                console.log(data);
+                socket.emit('new message', data);
                 setMessages([...messages, data]);
 
             } catch (error) {
@@ -97,6 +109,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             }
         }
     }
+
 
     const typingHandler = (e) => {
         setNewMessage(e.target.value);
