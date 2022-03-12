@@ -13,7 +13,9 @@ import Lottie, {  } from 'react-lottie';
 import animationData from '../animations/typing.json';
 
 // change if needed
-const ENDPOINT = 'https://web-wavedash.herokuapp.com/';
+// https://web-wavedash.herokuapp.com/
+// https://wavedashapp.herokuapp.com/
+const ENDPOINT = 'https://wavedashapp.herokuapp.com/';
 let socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
