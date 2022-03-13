@@ -48,9 +48,7 @@ const ProfileModal = ({ user, children }) => {
              </Text>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='purple' mr={3} onClick={onClose}>
-              Close
-            </Button>
+            
           </ModalFooter>
         </ModalContent>
       </Modal>
