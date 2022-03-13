@@ -97,8 +97,8 @@ const Login = () => {
                 width='100%'
                 style={{ marginTop: 15 }}
                 onClick={() => {
-                    setEmail('guest@example.com');
-                    setPassword('123456');
+                    setEmail('guestuser@guest.com');
+                    setPassword('guest');
                 }}
             >
                 Get guest credentials
