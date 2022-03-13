@@ -14,7 +14,6 @@ const Register = () => {
     const toast = useToast();
     const history = useHistory();
 
-
     const handleClick = () => setShow(!show);
 
     const postDetails = (pics) => {
