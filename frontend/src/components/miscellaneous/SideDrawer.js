@@ -118,7 +118,7 @@ const SideDrawer = () => {
                 </Button>
             </Tooltip>
 
-            <Text fontSize='2xl' fontFamily='magneto'>
+            <Text fontSize='4xl' fontFamily='Magneto Bold'>
                 wavedash
             </Text>
             <div>
