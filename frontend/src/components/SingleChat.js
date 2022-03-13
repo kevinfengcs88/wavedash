@@ -15,7 +15,7 @@ import animationData from '../animations/typing.json';
 // change if needed
 // https://web-wavedash.herokuapp.com/
 // http://localhost:5000
-const ENDPOINT = 'https://wavedash1.herokuapp.com/';
+const ENDPOINT = 'http://localhost:5000';
 let socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -76,7 +76,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         socket.on('stop typing', () => setIsTyping(false));
       }, []);
       
-
     useEffect(() => {
         fetchMessages();
         selectedChatCompare = selectedChat;
@@ -95,7 +94,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             }
         })
     })
-    
     
     const sendMessage = async(event) => {
         if(event.key === 'Enter' && newMessage){
