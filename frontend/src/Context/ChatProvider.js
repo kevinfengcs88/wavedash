@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const ChatContext = createContext();
@@ -7,7 +7,7 @@ const ChatProvider = ({ children }) => {
 
     const [user, setUser] = useState();
     const [selectedChat, setSelectedChat] = useState();
-    const [chats, setChats] = useState([]);
+    const [chats, setChats] = useState();
     const [notification, setNotification] = useState([]);
 
     const history = useHistory();
@@ -16,9 +16,8 @@ const ChatProvider = ({ children }) => {
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       setUser(userInfo);
       
-      if(!userInfo){
-          history.push('/');
-      }
+      if (!userInfo) history.push('/');
+      
     }, [history]);
     
 
