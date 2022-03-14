@@ -4,7 +4,7 @@
     min-height: 100vh;
     display: flex;
     background-image: url('./vaporwavepov.gif');
-    background-size: 300vh ;
+    background-size: auto;
     /* background-repeat: repeat; */
     background-position: center;
 }
