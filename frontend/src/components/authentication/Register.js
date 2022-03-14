@@ -121,14 +121,14 @@ const Register = () => {
                 onChange={(e)=>setName(e.target.value)}
             />
         </FormControl>
-        <FormControl id='email' isRequired>
+        <FormControl id='register-email' isRequired>
             <FormLabel>Email</FormLabel>
             <Input 
                 placeholder='Enter your email'
                 onChange={(e)=>setEmail(e.target.value)}
             />
         </FormControl>
-        <FormControl id='password' isRequired>
+        <FormControl id='register-password' isRequired>
             <FormLabel>Password</FormLabel>
             <InputGroup>
                 <Input 
@@ -143,7 +143,7 @@ const Register = () => {
                 </InputRightElement>
             </InputGroup>
         </FormControl>
-        <FormControl id='confirmPassword' isRequired>
+        <FormControl id='confirm-password' isRequired>
             <FormLabel>Confirm password</FormLabel>
             <InputGroup>
                 <Input 
