@@ -22,7 +22,7 @@ const Register = () => {
             toast({
                 title: 'Please select an image',
                 status: 'warning',
-                durationg: 5000,
+                duration: 5000,
                 isClosable: true,
                 position: 'bottom'
             });
@@ -49,7 +49,7 @@ const Register = () => {
             toast({
                 title: 'Please select an image',
                 status: 'warning',
-                durationg: 5000,
+                duration: 5000,
                 isClosable: true,
                 position: 'bottom'
             });
@@ -64,7 +64,7 @@ const Register = () => {
             toast({
                 title: 'Please fill out all fields',
                 status: 'warning',
-                durationg: 5000,
+                duration: 5000,
                 isClosable: true,
                 position: 'bottom'
             });
@@ -75,7 +75,7 @@ const Register = () => {
             toast({
                 title: 'Passwords do not match',
                 status: 'warning',
-                durationg: 5000,
+                duration: 5000,
                 isClosable: true,
                 position: 'bottom'
             });
@@ -89,9 +89,9 @@ const Register = () => {
             };
             const { data } = await axios.post('/api/user', {name, email, password, pic}, config);
             toast({
-                title: 'Registration successful',
+                title: 'Registration successful (refresh if the UI does not load automatically)',
                 status: 'success',
-                durationg: 5000,
+                duration: 5000,
                 isClosable: true,
                 position: 'bottom'
             });
@@ -104,7 +104,7 @@ const Register = () => {
                 title: 'Error occurred',
                 description: error.response.data.message,
                 status: 'error',
-                durationg: 5000,
+                duration: 5000,
                 isClosable: true,
                 position: 'bottom'
             });

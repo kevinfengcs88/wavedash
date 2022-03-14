@@ -19,7 +19,7 @@ const Login = () => {
             toast({
                 title: 'Please fill out all fields',
                 status: 'warning',
-                durationg: 5000,
+                duration: 5000,
                 isClosable: true,
                 position: 'bottom'
             });
@@ -34,9 +34,9 @@ const Login = () => {
             };
             const { data } = await axios.post('/api/user/login', {email, password}, config);
             toast({
-                title: 'Login successful',
+                title: 'Login successful  (refresh if the UI or your chats do not load automatically)',
                 status: 'success',
-                durationg: 5000,
+                duration: 5000,
                 isClosable: true,
                 position: 'bottom'
             });
@@ -49,7 +49,7 @@ const Login = () => {
                 title: 'Error occurred',
                 description: error.response.data.message,
                 status: 'error',
-                durationg: 5000,
+                duration: 5000,
                 isClosable: true,
                 position: 'bottom'
             });
