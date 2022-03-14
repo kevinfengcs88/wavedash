@@ -1,4 +1,4 @@
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, Button, useToast, FormControl, Input, Box } from '@chakra-ui/react';
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, Button, useToast, FormControl, Input, Box, Spinner } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ChatState } from '../../Context/ChatProvider';
@@ -135,7 +135,7 @@ const GroupChatModal = ({ children }) => {
               >
                 <FormControl>
                     <Input
-                    placeholder='Chat Name'
+                    placeholder='Group Name'
                     mb={3}
                     onChange={(e) => setGroupChatName(e.target.value)}
                     />
@@ -161,8 +161,13 @@ const GroupChatModal = ({ children }) => {
                         />
                     ))}
                 </Box>
-                {/* can add spinner right below */}
-                {loading ? <div>loading...</div> : (
+                {loading ? <div><Spinner 
+                                size='xl'
+                                w={10}
+                                h={10}
+                                alignSelf='center'
+                                margin='auto'
+                            /></div> : (
                     searchResult?.slice(0, 4).map((user)=>(
                         <UserListItem
                             key={user._id}
