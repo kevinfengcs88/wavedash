@@ -161,13 +161,13 @@ const GroupChatModal = ({ children }) => {
                         />
                     ))}
                 </Box>
-                {loading ? <div><Spinner 
+                {loading ? <Spinner 
                                 size='xl'
                                 w={10}
                                 h={10}
                                 alignSelf='center'
                                 margin='auto'
-                            /></div> : (
+                            /> : (
                     searchResult?.slice(0, 4).map((user)=>(
                         <UserListItem
                             key={user._id}

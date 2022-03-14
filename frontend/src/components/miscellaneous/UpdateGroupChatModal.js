@@ -234,9 +234,15 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
                     />
                 </FormControl>
                 {loading ? (
-                    <Spinner size='lg' />
+                    <Spinner 
+                        size='xl'
+                        w={10}
+                        h={10}
+                        alignSelf='center'
+                        margin='auto'
+                    />
                 ) : (
-                    searchResult?.map((user) => (
+                    searchResult?.slice(0, 4).map((user) => (
                         <UserListItem
                             key={user._id}
                             user={user}
