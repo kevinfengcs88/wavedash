@@ -57,6 +57,52 @@ const Login = () => {
         }
     }; 
 
+    const submitEnterHandler = async(e) => {
+        if (e.key === 'Enter')  {
+            setLoading(true);
+            if (!email || !password){
+                toast({
+                    title: 'Please fill out all fields',
+                    status: 'warning',
+                    duration: 5000,
+                    isClosable: true,
+                    position: 'bottom'
+                });
+                setLoading(false);
+                return;
+            }
+            try{
+                const config = {
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                };
+                const { data } = await axios.post('/api/user/login', {email, password}, config);
+                toast({
+                    title: 'Login successful  (refresh if the UI or your chats do not load automatically)',
+                    status: 'success',
+                    duration: 5000,
+                    isClosable: true,
+                    position: 'bottom'
+                });
+                localStorage.setItem('userInfo', JSON.stringify(data));
+                setLoading(false);
+                history.push('/chats');
+            }
+            catch (error){
+                toast({
+                    title: 'Error occurred',
+                    description: error.response.data.message,
+                    status: 'error',
+                    duration: 5000,
+                    isClosable: true,
+                    position: 'bottom'
+                });
+                setLoading(false);
+            }
+    }; 
+        }
+
     return (
         <VStack spacing='5px'>
             <FormControl id='email' isRequired>
@@ -65,6 +111,8 @@ const Login = () => {
                     placeholder='Enter your email'
                     value={email || ''}
                     onChange={(e)=>setEmail(e.target.value)}
+                    onKeyDown={submitEnterHandler}
+                    // fix this
                 />
             </FormControl>
             <FormControl id='password' isRequired>
@@ -75,6 +123,7 @@ const Login = () => {
                         placeholder='Enter your password'
                         value={password || ''}
                         onChange={(e)=>setPassword(e.target.value)}
+                        onKeyDown={submitEnterHandler}
                     />
                     <InputRightElement width='4.5rem'>
                         <Button h='1.75rem' size='sm' onClick={handleClick}>
