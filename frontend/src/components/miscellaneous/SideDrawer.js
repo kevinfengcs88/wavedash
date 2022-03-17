@@ -102,7 +102,7 @@ const SideDrawer = () => {
                 <Button variant='ghost' onClick={onOpen}>
                     <i className="fas fa-search"></i>
                     <Text d={{ base:'none', md:'flex' }} px='4'>
-                        Search User
+                        Search users
                     </Text>
                 </Button>
             </Tooltip>
@@ -119,16 +119,17 @@ const SideDrawer = () => {
                         />
                         <BellIcon fontSize='2xl' m={1}/>
                     </MenuButton>
-                    <MenuList
-                        pl={2}
-                    >
+                    <MenuList pl={3} pr={3}>
                         {!notification.length && 'No new messages'}
                         {notification.map(notif => (
                             <MenuItem key={notif._id} onClick={() => {
+                                console.log(notif.chat);
+                                console.log(notification);
                                 setSelectedChat(notif.chat);
-                                setNotification(notification.filter((n) => n !== notif));
+                                // setNotification(notification.filter(n => n.chat !== notification.chat))
+                                setNotification(notification.filter(n => n !== notif));
                             }}>
-                                {notif.chat.isGroupChat?`New message in ${notif.chat.chatName}`
+                                {notif.chat.isGroupChat ? `New message in ${notif.chat.chatName}`
                                 : `New message from ${getSender(user, notif.chat.users)}`}
                             </MenuItem>
                         ))}
