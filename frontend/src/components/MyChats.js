@@ -42,6 +42,7 @@ const toast = useToast();
 
   return (
     <Box
+      opacity={'90%'}
       d={{ base: selectedChat ? 'none' : 'flex', md: 'flex' }}
       flexDir='column'
       alignItems='center'
