@@ -89,7 +89,7 @@ const Register = () => {
             };
             const { data } = await axios.post('/api/user', {name, email, password, pic}, config);
             toast({
-                title: 'Registration successful (refresh if the UI does not load automatically)',
+                title: 'Registration successful (refresh if the UI or your chats do not load automatically)',
                 status: 'success',
                 duration: 5000,
                 isClosable: true,
@@ -112,6 +112,62 @@ const Register = () => {
         }
     }; 
 
+    const submitEnterHandler = async(e) => {
+        if (e.key === 'Enter'){
+        setLoading(true);
+        if (!name || !email || !password || !confirmPassword){
+            toast({
+                title: 'Please fill out all fields',
+                status: 'warning',
+                duration: 5000,
+                isClosable: true,
+                position: 'bottom'
+            });
+            setLoading(false);
+            return;
+        }
+        if (password !== confirmPassword){
+            toast({
+                title: 'Passwords do not match',
+                status: 'warning',
+                duration: 5000,
+                isClosable: true,
+                position: 'bottom'
+            });
+            return;
+        }
+        try{
+            const config = {
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            };
+            const { data } = await axios.post('/api/user', {name, email, password, pic}, config);
+            toast({
+                title: 'Registration successful (refresh if the UI or your chats do not load automatically)',
+                status: 'success',
+                duration: 5000,
+                isClosable: true,
+                position: 'bottom'
+            });
+            localStorage.setItem('userInfo', JSON.stringify(data));
+            setLoading(false);
+            history.push('/chats');
+        }
+        catch (error){
+            toast({
+                title: 'Error occurred',
+                description: error.response.data.message,
+                status: 'error',
+                duration: 5000,
+                isClosable: true,
+                position: 'bottom'
+            });
+            setLoading(false);
+        }
+        }
+    }; 
+
   return (
     <VStack spacing='5px'>
         <FormControl id='first-name' isRequired>
@@ -119,6 +175,7 @@ const Register = () => {
             <Input 
                 placeholder='Enter your name'
                 onChange={(e)=>setName(e.target.value)}
+                onKeyDown={submitEnterHandler}
             />
         </FormControl>
         <FormControl id='register-email' isRequired>
@@ -126,6 +183,7 @@ const Register = () => {
             <Input 
                 placeholder='Enter your email'
                 onChange={(e)=>setEmail(e.target.value)}
+                onKeyDown={submitEnterHandler}
             />
         </FormControl>
         <FormControl id='register-password' isRequired>
@@ -135,6 +193,7 @@ const Register = () => {
                     type={show ? 'text' : 'password'}
                     placeholder='Enter a password'
                     onChange={(e)=>setPassword(e.target.value)}
+                    onKeyDown={submitEnterHandler}
                 />
                 <InputRightElement width='4.5rem'>
                     <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -150,6 +209,7 @@ const Register = () => {
                     type={show ? 'text' : 'password'}
                     placeholder='Confirm your password'
                     onChange={(e)=>setConfirmPassword(e.target.value)}
+                    onKeyDown={submitEnterHandler}
                 />
                 <InputRightElement width='4.5rem'>
                     <Button h='1.75rem' size='sm' onClick={handleClick}>
