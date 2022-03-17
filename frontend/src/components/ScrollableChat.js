@@ -8,7 +8,7 @@ const ScrollableChat = ({ messages }) => {
     const { user } = ChatState();
   
     return (
-      <ScrollableFeed>
+      <ScrollableFeed forceScroll='true'>
         {messages &&
           messages.map((m, i) => (
             <div style={{ display: 'flex' }} key={m._id}>
@@ -28,7 +28,7 @@ const ScrollableChat = ({ messages }) => {
               <span
                 style={{
                   backgroundColor: `${
-                    m.sender._id === user._id ? '#D6BCFA' : '#C6F6D5'
+                    m.sender._id === user._id ? '#D6BCFA' : '#A0FFBD'
                   }`,
                   marginLeft: isSameSenderMargin(messages, m, i, user._id),
                   marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10,
