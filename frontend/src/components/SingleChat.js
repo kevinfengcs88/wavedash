@@ -175,6 +175,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                         {!selectedChat.isGroupChat ? (
                             <>
                                 {getSender(user, selectedChat.users)}
+                                {/* insert opacity toggle here */}
                                 <ProfileModal user={ getSenderFull(user, selectedChat.users) } />
                             </>
                         ) : (
@@ -225,6 +226,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                                 />
                             </div> : <></>}
                             <Input 
+                                focusBorderColor='purple.500'
                                 variant='filled'
                                 bg='#E0E0E0'
                                 placeholder='Enter a message...'

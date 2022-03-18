@@ -110,6 +110,7 @@ const SideDrawer = () => {
             <Text fontSize='4xl' fontFamily='Magneto Bold'>
                 wavedash
             </Text>
+
             <div>
                 <Menu>
                     <MenuButton p={1}>
