@@ -8,6 +8,7 @@ const ChatBox = ({ fetchAgain, setFetchAgain }) => {
   const { selectedChat } = ChatState();
   return (
     <Box
+      opacity={'99%'}
       d={{ base: selectedChat ? 'flex' : 'none', md: 'flex' }}
       alignItems='center'
       flexDir='column'
