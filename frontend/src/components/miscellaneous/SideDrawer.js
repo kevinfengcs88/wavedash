@@ -147,10 +147,21 @@ const SideDrawer = () => {
                     </MenuButton>
                     <MenuList>
                         <ProfileModal user={user}>
-                            <MenuItem>My Profile</MenuItem>
+                            <MenuItem
+                                _hover={{
+                                    background:'purple.500',
+                                    color:'white'
+                                }}
+                            >My Profile</MenuItem>
                         </ProfileModal>
                         <MenuDivider></MenuDivider>
-                        <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+                        <MenuItem
+                            _hover={{
+                                background:'red.500',
+                                color:'white' 
+                            }}
+                            onClick={logoutHandler}
+                        >Logout</MenuItem>
                     </MenuList>
                 </Menu>
             </div>
