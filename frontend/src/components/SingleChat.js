@@ -15,7 +15,8 @@ import animationData from '../animations/typing.json';
 // change if needed
 // https://web-wavedash.herokuapp.com/
 // http://localhost:5000
-const ENDPOINT = 'https://web-wavedash.herokuapp.com/';
+
+const ENDPOINT = 'http://localhost:5000';
 let socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {

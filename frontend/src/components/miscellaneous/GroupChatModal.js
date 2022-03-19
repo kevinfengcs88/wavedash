@@ -125,7 +125,6 @@ const GroupChatModal = ({ children }) => {
               >
                   Create Group Chat
               </ModalHeader>
-              <ModalCloseButton />
               <ModalBody
                 d='flex'
                 flexDir='column'
