@@ -42,7 +42,6 @@ const SideDrawer = () => {
             const { data } = await axios.get(`/api/user?search=${search}`, config);
             setLoading(false);
             setSearchResults(data);
-
         } catch (error) {
             toast({
                 title: 'Error occurred',
@@ -66,10 +65,10 @@ const SideDrawer = () => {
                 }
             };
 
-            const {data} = await axios.post('/api/chat', {userId}, config);
+            const { data } = await axios.post('/api/chat', { userId }, config);
 
             if (!chats.find((c)=>c._id === data._id)){
-                setChats([data, ...chats]);
+               setChats([data, ...chats]);
             }
 
             setSelectedChat(data);
@@ -98,15 +97,12 @@ const SideDrawer = () => {
         p='5px 10px 5px 10px'
         borderWidth='5px'
         >
-            <Tooltip label='Search users to chat' hasArrow placement='bottom-end'>
-                <Button variant='ghost' onClick={onOpen}>
-                    <i className="fas fa-search"></i>
-                    <Text d={{ base:'none', md:'flex' }} px='4'>
-                        Search users
-                    </Text>
-                </Button>
-            </Tooltip>
-
+            <Button variant='ghost' onClick={onOpen}>
+                <i className="fas fa-search"></i>
+                <Text d={{ base:'none', md:'flex' }} px='4'>
+                    Search users
+                </Text>
+            </Button>
             <Text fontSize='4xl' fontFamily='Magneto Bold'>
                 wavedash
             </Text>
