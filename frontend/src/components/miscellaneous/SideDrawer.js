@@ -19,7 +19,7 @@ const SideDrawer = () => {
     const [loadingChat, setLoadingChat] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const { user, setSelectedChat, chats, setChats, notification, setNotification } = ChatState();
+    const { user, selectedChat, setSelectedChat, chats, setChats, notification, setNotification } = ChatState();
     const history = useHistory();
 
     const logoutHandler = () => {
@@ -74,6 +74,7 @@ const SideDrawer = () => {
             setSelectedChat(data);
             setLoadingChat(false);
             onClose();
+            console.log(selectedChat);
         } catch (error) {
             toast({
                 title: 'Error retrieving chat',
