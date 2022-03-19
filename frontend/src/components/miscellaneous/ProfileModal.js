@@ -19,7 +19,12 @@ const ProfileModal = ({ user, children }) => {
             )
         }
         <Modal size='lg' isOpen={isOpen} onClose={onClose} isCentered>
-        <ModalOverlay />
+        <ModalOverlay
+            bg='none'
+            backdropFilter='auto'
+            backdropInvert='80%'
+            backdropBlur='2px'
+        />
         <ModalContent h='410px'>
           <ModalHeader
             fontSize='40px'
