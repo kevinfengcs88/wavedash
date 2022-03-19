@@ -168,7 +168,12 @@ const SideDrawer = () => {
         </Box>
 
         <Drawer placement='left' onClose={onClose} isOpen={isOpen}>
-            <DrawerOverlay />
+            <DrawerOverlay 
+                bg='none'
+                backdropFilter='auto'
+                backdropInvert='80%'
+                backdropBlur='2px'
+            />
             <DrawerContent>
                 <DrawerHeader borderBottomWidth='1px'>
                     Search users

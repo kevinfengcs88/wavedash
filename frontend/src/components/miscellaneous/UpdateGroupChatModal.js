@@ -185,7 +185,12 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
             onClose={onClose}
             isCentered
         >
-        <ModalOverlay />
+        <ModalOverlay
+            bg='none'
+            backdropFilter='auto'
+            backdropInvert='80%'
+            backdropBlur='2px'
+        />
         <ModalContent>
           <ModalHeader
             fontSize='35px'
