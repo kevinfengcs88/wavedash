@@ -34,7 +34,7 @@ const Login = () => {
             };
             const { data } = await axios.post('/api/user/login', {email, password}, config);
             toast({
-                title: 'Login successful  (refresh if the UI or your chats do not load automatically)',
+                title: 'Login successful (refresh may be required)',
                 status: 'success',
                 duration: 5000,
                 isClosable: true,
@@ -79,7 +79,7 @@ const Login = () => {
                 };
                 const { data } = await axios.post('/api/user/login', {email, password}, config);
                 toast({
-                    title: 'Login successful  (refresh if the UI or your chats do not load automatically)',
+                    title: 'Login successful (refresh may be required)',
                     status: 'success',
                     duration: 5000,
                     isClosable: true,

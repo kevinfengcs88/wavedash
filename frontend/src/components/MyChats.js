@@ -103,7 +103,8 @@ const toast = useToast();
                 </Text>
                 {chat.latestMessage && (
                   <Text>
-                    <b>{chat.latestMessage.sender.name} : </b>
+                    {/* update logged user here */}
+                    <b>{chat.latestMessage.sender.name === loggedUser ? 'You: ' : chat.latestMessage.sender.name} : </b>
                     {chat.latestMessage.content.length > 50
                     ? chat.latestMessage.content.substring(0, 51) + '...'
                     : chat.latestMessage.content} 
