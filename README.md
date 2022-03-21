@@ -36,3 +36,4 @@ https://wavedash-chat-app.herokuapp.com/
 - express-async-handler for managing express routes and passing them to error handlers
 - nodemon for live backend development
 - Heroku for hosting
+
