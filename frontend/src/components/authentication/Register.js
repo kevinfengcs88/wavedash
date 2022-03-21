@@ -89,7 +89,7 @@ const Register = () => {
             };
             const { data } = await axios.post('/api/user', {name, email, password, pic}, config);
             toast({
-                title: 'Registration successful (refresh if the UI or your chats do not load automatically)',
+                title: 'Registration successful (refresh may be required)',
                 status: 'success',
                 duration: 5000,
                 isClosable: true,
@@ -144,7 +144,7 @@ const Register = () => {
             };
             const { data } = await axios.post('/api/user', {name, email, password, pic}, config);
             toast({
-                title: 'Registration successful (refresh if the UI or your chats do not load automatically)',
+                title: 'Registration successful (refresh may be required)',
                 status: 'success',
                 duration: 5000,
                 isClosable: true,
