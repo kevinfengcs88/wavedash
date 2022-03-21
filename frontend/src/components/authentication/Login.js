@@ -79,7 +79,7 @@ const Login = () => {
                 };
                 const { data } = await axios.post('/api/user/login', {email, password}, config);
                 toast({
-                    title: 'Login successful (refresh may be required)',
+                    title: 'Login successful (a refresh may be required)',
                     status: 'success',
                     duration: 5000,
                     isClosable: true,
