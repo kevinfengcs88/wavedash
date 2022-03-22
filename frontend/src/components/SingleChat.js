@@ -16,7 +16,7 @@ import animationData from '../animations/typing.json';
 // https://web-wavedash.herokuapp.com/
 // http://localhost:5000
 
-const ENDPOINT = 'https://web-wavedash.herokuapp.com/';
+const ENDPOINT = 'http://localhost:5000';
 let socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -141,7 +141,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         }
 
         let lastTypingTime = new Date().getTime();
-        const timerLength = 3000;
+        const timerLength = 2000;
         setTimeout(() => {
             let timeNow = new Date().getTime();
             let timeDiff = timeNow - lastTypingTime;
@@ -151,7 +151,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 setTyping(false);
             }
         }, timerLength);
-    }
+    };
 
     return (
     <>

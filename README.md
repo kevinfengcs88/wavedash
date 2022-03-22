@@ -4,7 +4,7 @@
 
 Wavedash is a full stack chat app built with MERN.
 
-## Demo
+## Live deployment
 
 https://wavedash-chat-app.herokuapp.com/
 
@@ -36,4 +36,4 @@ https://wavedash-chat-app.herokuapp.com/
 - express-async-handler for managing express routes and passing them to error handlers
 - nodemon for live backend development
 - Heroku for hosting
-
+- Various other Node dependencies
