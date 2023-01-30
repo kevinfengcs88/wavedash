@@ -6,7 +6,7 @@ Wavedash is a full stack chat app built with MERN.
 
 ## Live deployment
 
-https://wavedash-chat-app.herokuapp.com/
+https://wavedash.onrender.com/
 
 ## Features
 
