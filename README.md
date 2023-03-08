@@ -35,5 +35,5 @@ https://wavedash.onrender.com/
 - mongoose for interacting with the MongoDB database
 - express-async-handler for managing express routes and passing them to error handlers
 - nodemon for live backend development
-- Heroku for hosting
+- Render for hosting
 - Various other Node dependencies
