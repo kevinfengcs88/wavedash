@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.a312dc1b.css",
-    "main.js": "/static/js/main.946ae580.js",
+    "main.js": "/static/js/main.fd9557ae.js",
     "static/media/vaporwavepov.gif": "/static/media/vaporwavepov.261cb054c7e9b2fd45ac.gif",
     "static/media/MAGNETOB.woff": "/static/media/MAGNETOB.c08cd0537265def904f5.woff",
     "index.html": "/index.html",
     "main.a312dc1b.css.map": "/static/css/main.a312dc1b.css.map",
-    "main.946ae580.js.map": "/static/js/main.946ae580.js.map"
+    "main.fd9557ae.js.map": "/static/js/main.fd9557ae.js.map"
   },
   "entrypoints": [
     "static/css/main.a312dc1b.css",
-    "static/js/main.946ae580.js"
+    "static/js/main.fd9557ae.js"
   ]
 }
